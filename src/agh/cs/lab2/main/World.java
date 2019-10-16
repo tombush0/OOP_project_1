@@ -1,6 +1,4 @@
-package agh.cs.lab2;
-
-import static agh.cs.lab2.MoveDirection.FORWARD;
+package agh.cs.lab2.main;
 
 public class World {
     public static void main(String[] args) {

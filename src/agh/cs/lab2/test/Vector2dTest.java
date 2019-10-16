@@ -1,17 +1,17 @@
-package Test;
+package agh.cs.lab2.test;
+
+import agh.cs.lab2.main.Vector2d;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
-import agh.cs.lab2.*;
 
 public class Vector2dTest {
     @Test
     public void equals() {
 
         assertTrue(new Vector2d(1, 4).equals(new Vector2d(1, 4)));
-        ;
+        assertFalse(new Vector2d(1, 4).equals(new Vector2d(2, 4)));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class Vector2dTest {
     public void follows() {
         assertTrue(new Vector2d(1, 4).follows(new Vector2d(2, 4)));
         assertTrue(new Vector2d(1, 4).follows(new Vector2d(1, 5)));
-        assertTrue(new Vector2d(1, 4).follows(new Vector2d(2, 5)));
+        assertFalse(new Vector2d(10, 10).follows(new Vector2d(2, 5)));
     }
 
     @Test
