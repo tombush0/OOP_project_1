@@ -23,21 +23,4 @@ public class MapDirectionTest {
         assertEquals(MapDirection.NORTH, MapDirection.EAST.previous());
         assertEquals(MapDirection.WEST, MapDirection.NORTH.previous());
     }
-
-    Vector2d v1 = new Vector2d(1, 4);
-
-    @Test
-    public void equals() {
-        Vector2d v2 = new Vector2d(1, 4);
-        assertTrue(v1.equals(v2));
-    }
-
-    /*@Test
-    public void testToString() {
-        String Name = toString(v1);
-
-    }
-
-     */
-
 }
