@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba20e5ca-5faf-4f25-918a-311dd9503d51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="ba20e5ca-5faf-4f25-918a-311dd9503d51" name="Default Changelist" comment="Last modifications">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/MapDirectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/test/MapDirectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/Vector2dTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/test/Vector2dTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/main/MapDirection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/MoveDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/main/MoveDirection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/main/Vector2d.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/main/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/main/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/main/MapDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agh/cs/lab2/test/Vector2dTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/agh/cs/lab2/test/Vector2dTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,20 +47,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Vector2dTest.follows">
-    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="agh.cs.lab2.main.World" />
-      <module name="Labs" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.cs.lab2.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.Vector2dTest">
     <configuration name="MapDirectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Labs" />
       <extension name="coverage">
@@ -111,6 +93,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Vector2dTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Labs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.cs.lab2.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="agh.cs.lab2.test" />
+      <option name="MAIN_CLASS_NAME" value="agh.cs.lab2.test.Vector2dTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Vector2dTest.follows" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Labs" />
       <extension name="coverage">
@@ -129,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Vector2dTest" />
         <item itemvalue="JUnit.Vector2dTest.follows" />
         <item itemvalue="JUnit.Test in Labs" />
         <item itemvalue="JUnit.MapDirectionTest.precedes" />
         <item itemvalue="JUnit.MapDirectionTest" />
-        <item itemvalue="Application.World" />
       </list>
     </recent_temporary>
   </component>
@@ -162,5 +159,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Last modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications" />
   </component>
 </project>

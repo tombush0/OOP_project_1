@@ -23,7 +23,7 @@ public class Vector2dTest {
     public void precedes() {
         assertTrue(new Vector2d(5, 2).precedes(new Vector2d(2, 2)));
         assertTrue(new Vector2d(5, 2).precedes(new Vector2d(5, 1)));
-        assertTrue(new Vector2d(5, 2).precedes(new Vector2d(5, 2)));
+        assertFalse(new Vector2d(-5, 2).precedes(new Vector2d(5, 2)));
     }
 
     @Test

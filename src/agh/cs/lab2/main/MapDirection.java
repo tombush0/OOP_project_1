@@ -14,8 +14,9 @@ public enum MapDirection {
                 return "Zachód";
             case EAST:
                 return "Wschód";
+            default:
+                return "Nie znam takiego kierunku";
         }
-        return null;
     }
 
     public MapDirection next() {
@@ -28,8 +29,9 @@ public enum MapDirection {
                 return NORTH;
             case EAST:
                 return SOUTH;
+            default:
+                return null;   // co zwrócić w takiej sytuacji?
         }
-        return null;
     }
 
     public MapDirection previous() {
@@ -42,27 +44,24 @@ public enum MapDirection {
                 return SOUTH;
             case EAST:
                 return NORTH;
+            default:
+                return null;
         }
-        return null;
     }
 
     public Vector2d toUnitVector() {
         int x = 0, y = 0;
         switch (this) {
             case NORTH:
-                x = 0;
-                y = 1;
+                return new Vector2d(0, 1);
             case SOUTH:
-                x = 0;
-                y = -1;
+                return new Vector2d(0, -1);
             case WEST:
-                x = -1;
-                y = 0;
+                return new Vector2d(-1, 0);
             case EAST:
-                x = 1;
-                y = 0;
+                return new Vector2d(1, 0);
+            default:
+                return null;
         }
-        Vector2d u = new Vector2d(x, y);
-        return u;
     }
 }
