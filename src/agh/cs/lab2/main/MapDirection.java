@@ -15,7 +15,7 @@ public enum MapDirection {
             case EAST:
                 return "Wschód";
             default:
-                return "Nie znam takiego kierunku";
+                return null;
         }
     }
 
@@ -50,7 +50,6 @@ public enum MapDirection {
     }
 
     public Vector2d toUnitVector() {
-        int x = 0, y = 0;
         switch (this) {
             case NORTH:
                 return new Vector2d(0, 1);

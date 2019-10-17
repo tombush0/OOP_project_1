@@ -1,8 +1,8 @@
 package agh.cs.lab2.main;
 
 public class Vector2d {
-    public int x;
-    public int y;
+    public final int x;
+    public final int y;
 
     public Vector2d(int x, int y) {
         this.x = x;
@@ -15,36 +15,31 @@ public class Vector2d {
     }
 
     public boolean precedes(Vector2d other) {
-        return (this.x >= other.x && this.y >= other.y);
+        return (this.x <= other.x || this.y <= other.y);
     }
 
     public boolean follows(Vector2d other) {
-        return (this.x <= other.x && this.y <= other.y);
+        return (this.x >= other.x || this.y >= other.y);
     }
 
     public Vector2d upperRight(Vector2d other) {
-        Vector2d Ur = new Vector2d(Math.max(this.x, other.x), Math.max(this.y, other.y));
-        return Ur;
+        return new Vector2d(Math.max(this.x, other.x), Math.max(this.y, other.y));
     }
 
     public Vector2d lowerLeft(Vector2d other) {
-        Vector2d Ll = new Vector2d(Math.min(this.x, other.x), Math.min(this.y, other.y));
-        return Ll;
+        return new Vector2d(Math.min(this.x, other.x), Math.min(this.y, other.y));
     }
 
     public Vector2d add(Vector2d other) {
-        Vector2d sum = new Vector2d(this.x + other.x, this.y + other.y);
-        return sum;
+        return new Vector2d(this.x + other.x, this.y + other.y);
     }
 
     public Vector2d subtract(Vector2d other) {
-        Vector2d diff = new Vector2d(this.x - other.x, this.y - other.y);
-        return diff;
+        return new Vector2d(this.x - other.x, this.y - other.y);
     }
 
     public Vector2d opposite() {
-        Vector2d o = new Vector2d(-this.x, -this.y);
-        return o;
+        return new Vector2d(-this.x, -this.y);
     }
     @Override
     public boolean equals(Object other) {
