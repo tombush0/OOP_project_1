@@ -1,4 +1,4 @@
-package LaunchPackage;
+package Launch;
 
 import AnimalMech.Animal;
 import MapMech.Grass;
@@ -21,7 +21,7 @@ public class World {
             int animalsNumber = Json.animalsStartingNumber;
 
 
-            for(int i=0; i<animalsNumber; i++){
+            for (int i = 0; i < animalsNumber; i++) {
                 Animal.makeAnimal(map);
             }
 
@@ -36,32 +36,10 @@ public class World {
 
             ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             executor.scheduleAtFixedRate(animateDay, 0, 500, TimeUnit.MILLISECONDS);
-        }
-        catch(IllegalArgumentException a) {
-            System.out.println(a); }
-        catch (Exception e) {
+        } catch (IllegalArgumentException a) {
+            System.out.println(a);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-//
-//
-//}
-//
-//import javatutorial.net.JFrmaeGraphics;
-//
-//import javax.swing.*;
-//import java.awt.*;
-//
-//public class World{
-//    public static void main(String[] args) {
-//
-//
-//
-//        JFrame frame= new JFrame("JavaTutorial.net");
-//        frame.getContentPane().add(new JFrmaeGraphics());
-//        frame.setSize(400, 400);
-//        frame.setVisible(true);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setResizable(false);
-//    }
 }

@@ -1,4 +1,4 @@
-package LaunchPackage;
+package Launch;
 
 import java.io.FileReader;
 

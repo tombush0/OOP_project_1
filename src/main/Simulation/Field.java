@@ -6,8 +6,7 @@ import Interfaces.IPositionChangeObserver;
 import Interfaces.IWorldMap;
 import MapMech.Grass;
 import MapMech.Vector2d;
-import Visualisation.OldVisualiser;
-import Simulation.Stats.*;
+import Visualisation.Visualiser;
 
 import java.util.*;
 
@@ -85,7 +84,7 @@ public class Field implements IWorldMap, IPositionChangeObserver {
     public String toString(){
         Vector2d lowerLeft = new Vector2d(0,0);
         Vector2d upperRight = new Vector2d(width,height);
-        return new OldVisualiser(this).draw(lowerLeft, upperRight);
+        return new Visualiser(this).draw(lowerLeft, upperRight);
     }
 
     @Override

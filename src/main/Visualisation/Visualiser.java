@@ -4,14 +4,14 @@ package Visualisation;
 import Interfaces.IWorldMap;
 import MapMech.Vector2d;
 
-public class OldVisualiser {
+public class Visualiser {
     private static final String EMPTY_CELL = " ";
     private static final String FRAME_SEGMENT = "-";
     private static final String CELL_SEGMENT = "|";
     private IWorldMap map;
 
 
-    public OldVisualiser(IWorldMap map) {
+    public Visualiser(IWorldMap map) {
         this.map = map;
     }
 
