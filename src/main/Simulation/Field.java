@@ -13,11 +13,11 @@ import java.util.*;
 
 
 public class Field implements IWorldMap, IPositionChangeObserver {
-
+    final int grassPerDay;
     public final int width;
     public final int height;
-    public final Vector2d jungleLowLeft;
-    public final Vector2d jungleUpRight;
+    final Vector2d jungleLowLeft;
+    final Vector2d jungleUpRight;
     public Stats statistics;
 
     private List<Animal> animals = new ArrayList<>();
@@ -31,12 +31,11 @@ public class Field implements IWorldMap, IPositionChangeObserver {
         this.jungleLowLeft = new Vector2d((int) Math.round(this.width*(1-jungleRatio)/2.0), (int) Math.round(this.height*(1-jungleRatio)/2.0));
         this.jungleUpRight = new Vector2d((int) Math.round(this.width*(1+jungleRatio)/2.0), (int) Math.round(this.height*(1+jungleRatio)/2.0));
         this.statistics = new Stats();
+        this.grassPerDay = grassGrownPerDay;
     }
 
-
-    // placing created animals
     public void placeAnimal(Animal animal){
-        LinkedList<IMapElement> localElements = new LinkedList<>();
+        LinkedList<IMapElement> localElements;
         Vector2d animalPosition = animal.getPosition();
         animal.inMap(this);
         if(!isOccupied(animalPosition)){
@@ -56,8 +55,7 @@ public class Field implements IWorldMap, IPositionChangeObserver {
         statistics.analizeGenom(animal.getGenom());
     }
 
-    // placing grass elements
-    public boolean placeGrass(Grass grass){
+    boolean placeGrass(Grass grass){
         if( isOccupied(grass.getPosition())){
             return false;
         }
@@ -67,7 +65,6 @@ public class Field implements IWorldMap, IPositionChangeObserver {
         statistics.addGrass();
         return true;
     }
-
 
     public void day(){
         Simulation.day(animals, mapElements,this);

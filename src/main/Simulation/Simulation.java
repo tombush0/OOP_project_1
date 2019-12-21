@@ -9,7 +9,7 @@ import MapMech.Vector2d;
 
 import java.util.*;
 
-public class Simulation {
+class Simulation {
 
     private static void movement(List<Animal> animals, Field map){
         List<Animal> animals1 = new ArrayList<>(animals);
@@ -25,7 +25,7 @@ public class Simulation {
             LinkedList<IMapElement> location = hashmap.get(animal.getPosition());
             if( location.getFirst() instanceof Grass){
                 location.removeFirst();
-                map.grassCount--;
+                map.statistics.removeGrass();
                 List<Animal> strongestAnimal = new LinkedList<>();
                 int maxEnergy = 0;
                 for(IMapElement candidate: location){
@@ -56,7 +56,7 @@ public class Simulation {
 
             if(!procreated[animal.getPosition().x][animal.getPosition().y]){
                 procreated[animal.getPosition().x][animal.getPosition().y] = true;
-                LinkedList<IMapElement> animalsHere = new LinkedList<>();
+                LinkedList<IMapElement> animalsHere;
                 animalsHere = hashmap.get(animal.getPosition());
                 if(animalsHere.size() > 1) {
                     animalsHere.sort(new Comparator<IMapElement>() {
@@ -67,7 +67,6 @@ public class Simulation {
                     });
                     Animal strongest = (Animal) animalsHere.get(0);
                     Animal secondStrongest = (Animal) animalsHere.get(1);
-//                    could be added sth more
                     if(secondStrongest.energy > 0.5*Animal.startEnergy){
                         Vector2d childPosition = strongest.getPosition().randAround();
                         for(int i=0; i<40; i++){
@@ -91,7 +90,7 @@ public class Simulation {
 
 
     private static void makeWorldGreen(Field map){
-        for(int i = 0; i< map.growingGrassCount; i++) {
+        for(int i = 0; i< map.grassPerDay; i++) {
             int count1 = (map.width * map.height), count2 = (map.width * map.height);
             for(int j=0; j<count1; j++) {
                 Vector2d pos = new Vector2d(Rand.get(map.width+1)%(map.width+1), Rand.get(map.height+1)%(map.height+1));
@@ -110,8 +109,6 @@ public class Simulation {
                 }
             }
         }
-        System.out.println("Grass added");
-
     }
 
     static void day(List<Animal> animals, Map<Vector2d, LinkedList<IMapElement>> hashmap, Field map){
@@ -119,10 +116,6 @@ public class Simulation {
         consumption(animals, hashmap, map);
         procreation(animals, hashmap, map);
         makeWorldGreen(map);
-        System.out.print("Grass: ");
-        System.out.println(map.grassCount);
-        System.out.print("Animals: ");
-        System.out.println(animals.size());
-    }
 
+    }
 }

@@ -17,6 +17,6 @@ public class Grass implements IMapElement {
 
     @Override
     public String toString(){
-        return String.valueOf((char)183);
+        return "*";
     }
 }

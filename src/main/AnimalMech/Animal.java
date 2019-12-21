@@ -1,5 +1,6 @@
 package AnimalMech;
 import Interfaces.IPositionChangeObserver;
+import MapMech.Rand;
 import Simulation.Field;
 import Interfaces.IMapElement;
 import MapMech.Vector2d;
@@ -79,15 +80,13 @@ public class Animal implements IMapElement {
     }
 
     public static void makeAnimal(Field map){
-        Random r = new Random();
-        Vector2d pos = new Vector2d(r.nextInt(map.width), r.nextInt(map.height));
+        Vector2d pos = new Vector2d(Rand.get(map.width), Rand.get(map.height));
         for(int i=0; i< 100 && map.isOccupied(pos); i++){
-            r = new Random();
-            pos = new Vector2d(r.nextInt(map.width), r.nextInt(map.height));
-            int x = pos.x%(map.width +1);
-            int y = pos.y %(map.height +1);
+            int x = Rand.get(map.width) % (map.width +1);
+            int y = Rand.get(map.height) % (map.height +1);
             if(x < 0) x += map.width + 1;
             if(y < 0) y += map.height +1;
+            pos = new Vector2d(x,y);
         }
         map.placeAnimal(new Animal(pos));
     }
@@ -95,11 +94,11 @@ public class Animal implements IMapElement {
     public void move(Field map){
         this.energy -= Animal.moveEnergy;
         if(this.energy <= 0){
-            this.die();
+            this.die(map);
         }
         else{
             Random r = new Random();
-            this.direction = this.direction.rotate(this.genom.genes[r.nextInt(32)].getNumerical());
+            this.direction = this.direction.rotate(this.genom.getGenes()[r.nextInt(32)].getNumerical());
             Vector2d oldPos = this.position;
             this.position = this.position.add(this.direction.toUnitVector());
             this.inMap(map);
@@ -107,7 +106,8 @@ public class Animal implements IMapElement {
         }
     }
 
-    private void die(){
+    private void die(Field map){
+        map.statistics.removeAnimal();
         this.positionChange(this.position, new Vector2d(-5, -5));
     }
 

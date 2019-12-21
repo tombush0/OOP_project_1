@@ -1,4 +1,4 @@
-package Config;
+package LaunchPackage;
 
 import AnimalMech.Animal;
 import MapMech.Grass;
@@ -30,6 +30,7 @@ public class World {
                 public void run() {
                     map.day();
                     System.out.println(map);
+                    System.out.println(map.statistics.toString());
                 }
             };
 

@@ -1,4 +1,4 @@
-package Config;
+package LaunchPackage;
 
 import java.io.FileReader;
 
@@ -6,17 +6,17 @@ import org.json.simple.parser.*;
 import org.json.simple.JSONObject;
 
 public class Json {
-    public static int width;
-    public static int height;
-    public static int startEnergy;
-    public static int moveEnergy;
-    public static int grassEnergy;
-    public static double jungleRatio;
-    public static int animalsStartingNumber;
-    public static int grassPerDay;
+    static int width;
+    static int height;
+    static int startEnergy;
+    static int moveEnergy;
+    static int grassEnergy;
+    static double jungleRatio;
+    static int animalsStartingNumber;
+    static int grassPerDay;
     public static boolean debug = false;
 
-    public static void readJSON() throws Exception {
+    static void readJSON() throws Exception {
         Object obj = new JSONParser().parse(new FileReader("./parameters.json"));
 //        Object aaa = new JSONParser().parse(new FileReader("./parameters.json"));
         JSONObject parameters = (JSONObject) obj;

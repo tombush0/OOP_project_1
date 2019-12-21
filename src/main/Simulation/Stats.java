@@ -12,18 +12,25 @@ public class Stats {
 
     Stats(){
         Arrays.fill(genomOccurence, 0);
+        this.animalNumber = 0;
+        this.grassNumber = 0;
     }
 
 
-    public void addAnimal(){
+    void addAnimal(){
         this.animalNumber++;
     }
 
-    public void addGrass(){
+    void addGrass(){
         this.grassNumber++;
     }
 
-    public void analizeGenom(Genom genom){
+    public void removeAnimal(){ this.animalNumber-- ;}
+
+    void removeGrass(){ this.grassNumber-- ;}
+
+
+    void analizeGenom(Genom genom){
         Arrays.fill(this.genomOccurence, 0);
         int[] animalGenes = new int[8];
         Arrays.fill(animalGenes, 0);
@@ -31,16 +38,34 @@ public class Stats {
         for(int i=0; i<32; i++){
             animalGenes[genes[i].getNumerical()]++;
         }
-        int mostFrequent = Arrays.stream(animalGenes)
-                .max()
-                .getAsInt();
+        int mostFrequentCount = 0;
+        int mostFrequent = 0;
+        for(int i=0; i<8; i++){
+            if(animalGenes[i] > mostFrequentCount){
+                mostFrequentCount = animalGenes[i];
+                mostFrequent = i;
+            }
+        }
         this.genomOccurence[mostFrequent] ++;
     }
 
-    public Genes getMostPopularGene() {
-        int bestGene = Arrays.stream(this.genomOccurence)
-                .max()
-                .getAsInt();
-        return Genes.fromNumerical(bestGene);
+    private Genes getMostPopularGene() {
+        int mostFrequentCount = 0;
+        int mostFrequent = 0;
+        for(int i=0; i<8; i++){
+            if(this.genomOccurence[i] > mostFrequentCount){
+                mostFrequentCount = genomOccurence[i];
+                mostFrequent = i;
+            }
+        }
+        return Genes.fromNumerical(mostFrequent);
+    }
+
+    @Override
+    public String toString() {
+        String a = String.valueOf(this.animalNumber);
+        String b = String.valueOf(this.grassNumber);
+        String c = String.valueOf(this.getMostPopularGene());
+        return "Animals:" + a + "  Grass:" + b + "  Best gene:" + c;
     }
 }
