@@ -10,5 +10,14 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="com.btmatthews.junit:junit-rules:1.0.1" level="project" />
     <orderEntry type="library" name="com.btmatthews.junit:junit-rules:1.0.1" level="project" />
+    <orderEntry type="module-library">
+      <library name="json">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/json-simple-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
