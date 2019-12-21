@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Genom {
-    Genes[] genes;
+    private Genes[] genes;
 
     public Genom(Genes[] genes){
         this.genes = genes;
@@ -46,6 +46,10 @@ public class Genom {
                     Arrays.sort(this.genes);
                 }
             }
+    }
+
+    public Genes[] getGenes(){
+        return this.genes;
     }
 }
 

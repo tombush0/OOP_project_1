@@ -20,6 +20,7 @@ public class World {
             Animal.moveEnergy = Json.moveEnergy;
             int animalsNumber = Json.animalsStartingNumber;
 
+
             for(int i=0; i<animalsNumber; i++){
                 Animal.makeAnimal(map);
             }
@@ -34,8 +35,6 @@ public class World {
 
             ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             executor.scheduleAtFixedRate(animateDay, 0, 500, TimeUnit.MILLISECONDS);
-
-
         }
         catch(IllegalArgumentException a) {
             System.out.println(a); }

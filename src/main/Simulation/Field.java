@@ -7,17 +7,18 @@ import Interfaces.IWorldMap;
 import MapMech.Grass;
 import MapMech.Vector2d;
 import Visualisation.OldVisualiser;
+import Simulation.Stats.*;
 
 import java.util.*;
 
 
 public class Field implements IWorldMap, IPositionChangeObserver {
-    public int grassCount=0;
-    public int growingGrassCount;
+
     public final int width;
     public final int height;
     public final Vector2d jungleLowLeft;
     public final Vector2d jungleUpRight;
+    public Stats statistics;
 
     private List<Animal> animals = new ArrayList<>();
 //    List<Grass> grassList = new ArrayList<>();
@@ -27,10 +28,9 @@ public class Field implements IWorldMap, IPositionChangeObserver {
     public Field(int height, int width,  double jungleRatio, int grassGrownPerDay){
         this.height = height;
         this.width = width;
-        this.growingGrassCount = grassGrownPerDay;
         this.jungleLowLeft = new Vector2d((int) Math.round(this.width*(1-jungleRatio)/2.0), (int) Math.round(this.height*(1-jungleRatio)/2.0));
         this.jungleUpRight = new Vector2d((int) Math.round(this.width*(1+jungleRatio)/2.0), (int) Math.round(this.height*(1+jungleRatio)/2.0));
-
+        this.statistics = new Stats();
     }
 
 
@@ -52,6 +52,8 @@ public class Field implements IWorldMap, IPositionChangeObserver {
         this.mapElements.put(animalPosition, localElements);
         this.animals.add(animal);
         animal.addObserver(this);
+        statistics.addAnimal();
+        statistics.analizeGenom(animal.getGenom());
     }
 
     // placing grass elements
@@ -62,7 +64,7 @@ public class Field implements IWorldMap, IPositionChangeObserver {
         LinkedList<IMapElement> localElements = new LinkedList<>();
         localElements.add(grass);
         this.mapElements.put(grass.getPosition(), localElements);
-        this.grassCount ++;
+        statistics.addGrass();
         return true;
     }
 
@@ -104,6 +106,7 @@ public class Field implements IWorldMap, IPositionChangeObserver {
             this.mapElements.get(newPosition).add(animal);
         }
     }
+
 
 }
 
