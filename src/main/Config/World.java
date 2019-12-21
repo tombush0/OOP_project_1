@@ -35,9 +35,10 @@ public class World {
             ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
             executor.scheduleAtFixedRate(animateDay, 0, 500, TimeUnit.MILLISECONDS);
 
+
         }
         catch(IllegalArgumentException a) {
-            System.out.println(a); ;}
+            System.out.println(a); }
         catch (Exception e) {
             e.printStackTrace();
         }
